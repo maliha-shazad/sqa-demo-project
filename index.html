@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SQA Demo - Buggy Website</title>
+    <style>
+        body { font-family: Arial; margin: 50px; }
+        .error { color: red; }
+        .success { color: green; }
+        input { padding: 8px; margin: 5px; }
+        button { padding: 8px 15px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>🛠️ SQA Test Demo Website</h1>
+    <p><i>This website has INTENTIONAL BUGS for testing</i></p>
+
+    <!-- Login Form with Bug -->
+    <div>
+        <h3>Login Form</h3>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="loginMsg"></p>
+    </div>
+
+    <!-- Calculator with Bugs -->
+    <div>
+        <h3>Calculator (Buggy)</h3>
+        <input type="number" id="num1" placeholder="First number">
+        <input type="number" id="num2" placeholder="Second number">
+        <button onclick="add()">Add</button>
+        <button onclick="divide()">Divide</button>
+        <p id="calcResult"></p>
+    </div>
+
+    <!-- Age Validator -->
+    <div>
+        <h3>Age Validator</h3>
+        <input type="text" id="age" placeholder="Enter your age">
+        <button onclick="validateAge()">Check</button>
+        <p id="ageMsg"></p>
+    </div>
+
+    <script>
+        // BUG #1: Password check is wrong (checks wrong field)
+        function login() {
+            let user = document.getElementById('username').value;
+            let pass = document.getElementById('password').value;
+            
+            if(user == "admin" && pass == "admin") {  // BUG: Should check password field
+                document.getElementById('loginMsg').innerHTML = "✅ Login Success!";
+            } else {
+                document.getElementById('loginMsg').innerHTML = "❌ Invalid credentials";
+            }
+        }
+
+        // BUG #2: Division by zero not handled
+        function divide() {
+            let a = document.getElementById('num1').value;
+            let b = document.getElementById('num2').value;
+            let result = a / b;  // BUG: No check for b=0
+            document.getElementById('calcResult').innerHTML = "Result: " + result;
+        }
+
+        // BUG #3: Addition concatenates instead of adds
+        function add() {
+            let a = document.getElementById('num1').value;
+            let b = document.getElementById('num2').value;
+            let result = a + b;  // BUG: String concatenation, not addition
+            document.getElementById('calcResult').innerHTML = "Result: " + result;
+        }
+
+        // BUG #4: Accepts negative ages
+        function validateAge() {
+            let age = document.getElementById('age').value;
+            if(age > 18) {
+                document.getElementById('ageMsg').innerHTML = "✅ Adult";
+            } else {
+                document.getElementById('ageMsg').innerHTML = "❌ Minor";  // BUG: Negative age shows Minor
+            }
+        }
+    </script>
+</body>
+</html>
