@@ -39,3 +39,58 @@ This is a demo website created for **Software Quality Assurance (SQA)** testing 
 ## 🚀 How to Run This Project
 
 ### Method 1: Live Websitegit
+
+### Method 2: Local
+1. Download `index.html`
+2. Double-click to open in browser
+3. Start testing
+
+---
+
+## 📝 How to Test
+
+1. Open the website
+2. Follow test cases from `Test-Cases.xlsx`
+3. Compare Expected vs Actual results
+4. Report bugs in `Bug-Report.md`
+
+---
+
+## ✅ SQA Skills Demonstrated
+
+- Test Case Design
+- Bug Reporting (with severity/priority)
+- Manual Testing
+- Boundary Value Analysis
+- Edge Case Testing
+- Documentation
+
+---
+
+## 🔧 Bug Examples (Found During Testing)
+
+### Bug #1: Login Vulnerability
+- **Any password works** for admin user
+- **Severity:** Critical
+
+### Bug #2: Calculator Addition
+- **2 + 3 = 23** (string concatenation instead of addition)
+- **Severity:** High
+
+### Bug #3: Division by Zero
+- **10 / 0 = Infinity** (no error handling)
+- **Severity:** Critical
+
+### Bug #4: Age Validation
+- **-5 age shows "Minor"** (no negative check)
+- **Severity:** Medium
+
+---
+
+## 📞 Contact
+For any questions about this SQA project, feel free to reach out.
+
+---
+
+**Created by:** Maliha Shazad  
+**Purpose:** SQA Interview Demo
